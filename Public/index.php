@@ -3,6 +3,7 @@ session_start();
 include "db_conn.php";
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
+
     function validate($data){
        $data = trim($data);
        $data = stripslashes($data);
@@ -20,18 +21,21 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required");
         exit();
     } else {
-        // Check for the user in the database
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            // Verify the encrypted password
+            
             if (password_verify($pass, $row['password'])) {
+                // --- LOGIN SUCCESS ---
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['id'] = $row['id'];
-                // LOGIN SUCCESS: Redirect to a welcome page or show alert
-                echo "<script>alert('Login Successful!');</script>";
+                
+                // REDIRECT TO main.html
+                header("Location: main.html");
+                exit();
+                // ---------------------
             } else {
                 header("Location: index.php?error=Incorrect User name or password");
                 exit();
@@ -43,7 +47,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
