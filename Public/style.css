@@ -8,13 +8,28 @@
 }
 .wrapper {
   display:flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   height:100vh;
   width:100%;
- background: url('../Images/Logo.jpg') no-repeat;
+  background: url('../Images/okokok.jpg') no-repeat;
   background-size:cover;
   background-position:center;
+  position: relative;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../Images/okokok.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  z-index: 1;
 }
 
 .login-box {
@@ -23,23 +38,24 @@
   height: 455px;
   background: transparent;
   border-radius: 10px;
-  border: 2px solid rgba(255,255,255,.5);
+  border: 2px solid rgba(0, 0, 0, 0.563);
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 10 rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
+  z-index: 2;
 }
 h2 {
   font-size:2em;
-  color:#fff;
+  color:#636363;
   text-align:center;
 }
 .input-box {
   position:relative;
   width:310px;
   margin:30px 0;
-  border-bottom:1px solid #fff;
+  border-bottom:1px solid #000000;
 }
 .input-box label {
   position:absolute;
@@ -47,7 +63,7 @@ h2 {
   left:5px;
   transform:translateY(-50%);
   font-size:1em;
-  color:#fff;
+  color:#ffffff;
   pointer-events:none;
   transition:.5s;
 }
@@ -62,20 +78,20 @@ h2 {
   border:none;
   outline:none;
   font-size:1em;
-  color:#fff;
+  color:#ffffff;
   padding:0 35px 0 5px;
 }
 .input-box .icon {
   position:absolute;
   right:8px;
   top:50%;
-  color: #fff;
+  color: #ffffff;
   transform: translateY(-50%);
 }
 .remember-forgot {
   margin:-15px 0 15px;
   font-size:.9em;
-  color:#fff;
+  color:#ffffff;
   display:flex;
   justify-content:space-between;
 }
@@ -83,7 +99,7 @@ h2 {
   margin-right:3px;
 }
 .remember-forgot a {
-  color:#fff;
+  color:#ffffff;
   text-decoration:none;
 }
 .remember-forgot a:hover {
@@ -96,9 +112,17 @@ button {
   border:none;
   border-radius:40px;
   cursor:pointer;
+  border:1px solid #000;
   font-size:1em;
   color:#000;
-  font-weight;500;
+  font-weight:500;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color:#000;
+  color:#fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .register-link {
   font-size:.9em;
