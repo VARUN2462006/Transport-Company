@@ -35,13 +35,12 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 // REDIRECT TO main.html
                 header("Location: main.html");
                 exit();
-                // ---------------------
             } else {
-                header("Location: index.php?error=Incorrect User name or password");
+                header("Location: index.php?error=Incorrect Username or Password");
                 exit();
             }
         } else {
-            header("Location: index.php?error=Incorrect User name or password");
+            header("Location: index.php?error=Incorrect Username or Password");
             exit();
         }
     }
@@ -51,10 +50,24 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CSS Glassmorphism | Login</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  
+  <link rel="stylesheet" href="style.css">
+  
   <style>
-    .error { color: #ff4d4d; padding: 10px; text-align: center; border-radius: 5px; background: rgba(0,0,0,0.2); margin-bottom: 15px;}
+    /* Inline style specifically for the PHP error message */
+    .error { 
+        color: #ff4d4d; 
+        padding: 10px; 
+        text-align: center; 
+        border-radius: 5px; 
+        background: rgba(0,0,0,0.5); 
+        margin-bottom: 15px;
+        font-weight: bold;
+        border: 1px solid #ff4d4d;
+    }
   </style>
 </head>
 <body>
