@@ -1,0 +1,123 @@
+/* =========================
+   Basic Reset
+========================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* General Link Styling */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+.nav-link {
+    background-color: orangered;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: #ff7300;
+    box-shadow: 0 4px 8px rgba(255, 115, 0, 0.2);
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: #ff4b2b;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #ff7300;
+    box-shadow: 0 4px 8px rgba(255, 115, 0, 0.2);
+}
+
+/* =========================
+   Logo
+========================= */
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff7300;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: block;
+
+    font-family: Poppins, sans-serif;
+    text-align: center;
+
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* =========================
+   Horizontal Rules
+========================= */
+hr {
+    border: none;
+    background-color: #ff5733;
+    height: 2px;
+}
+
+.hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+/* =========================
+   Services Section
+========================= */
+.service-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.service-image {
+    width: 250px;
+    height: auto;
+    margin-left: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.service-content {
+    flex: 1;
+}
+
+/* =========================
+   Buttons
+========================= */
+.book-btn {
+    background-color: orangered;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
