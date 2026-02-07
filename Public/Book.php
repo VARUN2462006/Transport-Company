@@ -1,7 +1,23 @@
 <?php
 $name = $_GET['truck_name'] ?? 'Select Truck';
 $img = $_GET['truck_img'] ?? 'default.jpg';
-$price = $_GET['price'] ?? '0';
+$truck_key = $_GET['truck_key'] ?? '';
+
+$price = '0';
+if ($truck_key) {
+    require_once __DIR__ . '/connect.php';
+    $stmt = $conn->prepare("SELECT price_per_km FROM truck_rates WHERE truck_key = ?");
+    $stmt->bind_param("s", $truck_key);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    if ($res && $row = $res->fetch_assoc()) {
+        $price = (string)(int)$row['price_per_km'];
+    }
+    $stmt->close();
+    $conn->close();
+} else {
+    $price = $_GET['price'] ?? '0';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +38,12 @@ $price = $_GET['price'] ?? '0';
 <div class="main-content">
 <div class="booking-card">
 <img src="../Images/Truck Images/<?= $img ?>" alt="Truck">
-<h2>Booking for: <span style="color:#28a745"><?= $name ?></span></h2>
-<div>Rate: <strong>₹<?= $price ?>/KM</strong></div>
+<h2>Booking for: <span style="color:#28a745"><?= htmlspecialchars($name) ?></span></h2>
+<div class="price-per-km">Price per km: <strong>₹<?= htmlspecialchars($price) ?></strong></div>
 
 <form action="process_booking.php" method="POST">
-<input type="hidden" name="truck_name" value="<?= $name ?>">
-<input type="hidden" id="price" name="price_per_km" value="<?= $price ?>">
+<input type="hidden" name="truck_name" value="<?= htmlspecialchars($name) ?>">
+<input type="hidden" id="price" name="price_per_km" value="<?= htmlspecialchars($price) ?>">
 
 <label>Your Name</label>
 <input type="text" name="customer_name" placeholder="Full name" required>
