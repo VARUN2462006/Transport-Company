@@ -101,11 +101,13 @@ $conn->close();
                                 <form class="action-form" method="post" action="admin_booking_action.php">
                                     <input type="hidden" name="booking_id" value="<?= (int)$b['id'] ?>">
                                     <input type="hidden" name="action" value="accept">
+                                    <input type="hidden" name="source" value="bookings">
                                     <button type="submit" class="btn btn-accept">Accept</button>
                                 </form>
                                 <form class="action-form" method="post" action="admin_booking_action.php">
                                     <input type="hidden" name="booking_id" value="<?= (int)$b['id'] ?>">
                                     <input type="hidden" name="action" value="reject">
+                                    <input type="hidden" name="source" value="bookings">
                                     <button type="submit" class="btn btn-reject">Reject</button>
                                 </form>
                                 <?php else: ?>

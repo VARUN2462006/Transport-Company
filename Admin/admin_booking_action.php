@@ -8,9 +8,10 @@ require_once __DIR__ . '/../Public/connect.php';
 
 $action = $_POST['action'] ?? '';
 $booking_id = (int) ($_POST['booking_id'] ?? 0);
+$source = $_POST['source'] ?? 'dashboard';
 
 if (!in_array($action, ['accept', 'reject']) || $booking_id <= 0) {
-    header('Location: bookings.php?msg=invalid');
+    header('Location: admin_dashboard.php?msg=invalid');
     exit;
 }
 
@@ -20,5 +21,6 @@ $stmt->bind_param("si", $status, $booking_id);
 $stmt->execute();
 $stmt->close();
 
-header('Location: bookings.php?msg=' . $action . '&id=' . $booking_id);
+$redirect_to = ($source === 'bookings') ? 'bookings.php' : 'admin_dashboard.php';
+header('Location: ' . $redirect_to . '?msg=' . $action . '&id=' . $booking_id);
 exit;

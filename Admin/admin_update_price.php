@@ -11,7 +11,7 @@ $price_km = (float) ($_POST['price_per_km'] ?? 0);
 $price_ton = (float) ($_POST['price_per_ton'] ?? 0);
 
 if ($truck_id <= 0 || $price_km < 0 || $price_ton < 0) {
-    header('Location: truck_rates.php?msg=invalid_price');
+    header('Location: admin_dashboard.php?msg=invalid_price');
     exit;
 }
 
@@ -31,5 +31,5 @@ if ($has_price_per_ton) {
 $stmt->execute();
 $stmt->close();
 
-header('Location: truck_rates.php?msg=price_updated&id=' . $truck_id);
+header('Location: admin_dashboard.php?msg=price_updated&id=' . $truck_id);
 exit;

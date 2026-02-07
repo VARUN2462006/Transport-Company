@@ -42,7 +42,7 @@ if ($truck_key) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="book.css?v=1.3">
+<link rel="stylesheet" href="book.css?v=1.0">
 <title>Booking <?= $name ?></title>
 </head>
 <body>
@@ -86,7 +86,7 @@ if ($truck_key) {
 
 <div>Estimated Cost: <span id="total_display">₹0</span></div>
 <p class="formula-note"><?= $use_ton_rate ? 'Cost = (₹/km × distance) + (₹/ton × weight)' : 'Cost = ₹/km × distance × weight (tons)' ?></p>
-<button type="submit">Confirm Booking</button>
+<button type="submit" class="btn">Confirm Booking</button>
 </form>
 </div>
 </div>
