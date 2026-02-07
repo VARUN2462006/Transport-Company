@@ -57,8 +57,20 @@ body {
     color: #2e7d32;
     padding: 10px 14px;
     border-radius: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 1.1rem;
+}
+
+.capacity-info {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.formula-note {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #666;
 }
 
 /* --- Form Styles --- */
