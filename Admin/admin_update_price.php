@@ -15,6 +15,8 @@ if ($truck_id <= 0 || $price_km < 0 || $price_ton < 0) {
     exit;
 }
 
+$source = $_POST['source'] ?? 'dashboard';
+
 $has_price_per_ton = false;
 $r = $conn->query("SHOW COLUMNS FROM truck_rates LIKE 'price_per_ton'");
 if ($r && $r->num_rows > 0) {
@@ -31,5 +33,6 @@ if ($has_price_per_ton) {
 $stmt->execute();
 $stmt->close();
 
-header('Location: admin_dashboard.php?msg=price_updated&id=' . $truck_id);
+$redirect_to = ($source === 'truck_rates') ? 'truck_rates.php' : 'admin_dashboard.php';
+header('Location: ' . $redirect_to . '?msg=price_updated&id=' . $truck_id);
 exit;

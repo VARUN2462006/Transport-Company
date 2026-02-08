@@ -80,6 +80,7 @@ $conn->close();
                                     <label class="rate-label">₹/ton</label>
                                     <input type="number" name="price_per_ton" value="<?= (float)$t['price_per_ton'] ?>" min="0" step="0.01" required>
                                     <?php endif; ?>
+                                    <input type="hidden" name="source" value="truck_rates">
                                     <button type="submit" class="btn btn-update">Update</button>
                                 </form>
                             </td>
