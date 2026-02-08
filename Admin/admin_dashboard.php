@@ -128,7 +128,7 @@ $conn->close();
     <header class="dashboard-header">
         <h1>Admin Control Panel</h1>
         <div class="user-info">
-            <span>Welcome, <strong><?= htmlspecialchars($_SESSION['admin_user_id']) ?></strong></span>
+            <b><span>Welcome <p>Admin</p></span></b>
             <a href="index.php?logout=1" class="logout-btn">Logout</a>
         </div>
     </header>
