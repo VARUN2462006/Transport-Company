@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Homepage.css?v=1.1">
+    <link rel="stylesheet" href="Homepage.css?v=1.7">
     
     <script src="Homepage.js"></script>
 </head>
@@ -60,15 +60,15 @@
     <div class="contact-grid">
         <div class="contact-block">
             <strong>Phone</strong>
-            <p>+91 9405228627</p>
+            <p class="p1">+91 9405228627</p>
         </div>
         <div class="contact-block">
             <strong>Email</strong>
-            <p>athawalevarun3@gmail.com</p>
+            <p class="p1"><a href="mailto:athawalevarun3@gmail.com">Send Email</a></p>
         </div>
         <div class="contact-block">
             <strong>Address</strong>
-            <p>123 Transport Street, Miraj, Maharashtra</p>
+            <p class="p1">123 Transport Street, Miraj, Maharashtra</p>
         </div>
     </div>
 </section>
