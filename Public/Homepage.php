@@ -22,8 +22,8 @@
         <div class="sub-menu">
             <a href="Homepage.php" class="option">Home</a>
             <a href="#about" class="option">About</a>
-            <a href="services.php" class="option">Services</a>
-            <a href="#contact" class="option">Contact</a> 
+            <a href="#contact " class="option">Contact</a>
+            <a href="services.php" class="option">Services</a> 
         </div>
     </div>
 
@@ -64,7 +64,7 @@
         </div>
         <div class="contact-block">
             <strong>Email</strong>
-            <p class="p1"><a href="mailto:athawalevarun3@gmail.com">Send Email</a></p>
+            <p class="p1">athawalevarun3@gmail.com</p>
         </div>
         <div class="contact-block">
             <strong>Address</strong>
