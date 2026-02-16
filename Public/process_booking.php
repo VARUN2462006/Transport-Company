@@ -24,20 +24,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $has_weight = true;
     }
 
+    session_start();
+    $user_email = $_SESSION['email'] ?? null;
+
     if ($has_weight) {
         $stmt = $conn->prepare(
             "INSERT INTO bookings 
-            (customer_name, truck_name, booking_date, address, distance_km, price_per_km, total_cost, weight_ton) 
-            VALUES (?,?,?,?,?,?,?,?)"
+            (customer_name, user_email, truck_name, booking_date, address, distance_km, price_per_km, total_cost, weight_ton) 
+            VALUES (?,?,?,?,?,?,?,?,?)"
         );
-        $stmt->bind_param("ssssdddd", $_POST['customer_name'], $_POST['truck_name'], $_POST['booking_date'], $_POST['address'], $km, $price_per_km, $total, $weight_ton);
+        $stmt->bind_param("sssssdddd", $_POST['customer_name'], $user_email, $_POST['truck_name'], $_POST['booking_date'], $_POST['address'], $km, $price_per_km, $total, $weight_ton);
     } else {
         $stmt = $conn->prepare(
             "INSERT INTO bookings 
-            (customer_name, truck_name, booking_date, address, distance_km, price_per_km, total_cost) 
-            VALUES (?,?,?,?,?,?,?)"
+            (customer_name, user_email, truck_name, booking_date, address, distance_km, price_per_km, total_cost) 
+            VALUES (?,?,?,?,?,?,?,?)"
         );
-        $stmt->bind_param("ssssddd", $_POST['customer_name'], $_POST['truck_name'], $_POST['booking_date'], $_POST['address'], $km, $price_per_km, $total);
+        $stmt->bind_param("sssssddd", $_POST['customer_name'], $user_email, $_POST['truck_name'], $_POST['booking_date'], $_POST['address'], $km, $price_per_km, $total);
     }
 
     $stmt->execute()

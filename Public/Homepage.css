@@ -250,3 +250,107 @@ body {
     transform: scale(1.1);
     box-shadow: 0 0 15px #e65100;
 }
+
+/* Global Image Responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Removes bottom space */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .header-image {
+        height: 40vh;
+        /* Use viewport height instead of fixed pixels */
+        min-height: 300px;
+    }
+
+    #about {
+        max-width: 90%;
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding-top: 100px;
+    }
+
+    .menu {
+        padding: 0.5rem 1rem;
+    }
+
+    .menu-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* Submenu adjustments for mobile */
+    .sub-menu {
+        top: 80px;
+        width: 180px;
+        left: 10px;
+        /* Offset from edge */
+    }
+
+    .logout-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .contact-block {
+        border-left: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 1.5rem;
+    }
+
+    .contact-block:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1rem;
+        display: none;
+        /* Keep generic logo hidden on small screens if desired, or show icon only */
+    }
+
+    .menu {
+        justify-content: space-between;
+    }
+
+    .header-image {
+        height: auto;
+        /* Allow height to adjust based on width */
+        min-height: auto;
+        /* Remove minimum height constraint */
+        object-fit: contain;
+        /* Ensure the whole image is visible */
+        max-height: 400px;
+        /* Optional cap to prevent it from being too tall if it's a portrait image */
+    }
+
+    #about {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem auto;
+        font-size: 0.95rem;
+        /* Slightly smaller text */
+    }
+
+    .contact-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+}

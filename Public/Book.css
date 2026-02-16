@@ -20,15 +20,16 @@ body {
 }
 
 /* Logo */
-.logo{
-width: 80px;
-height: 80px;
-border-radius: 50%;
-object-fit: cover
-}
 .logo {
-border-radius: 50%;
-border: 1px solid orangered;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover
+}
+
+.logo {
+    border-radius: 50%;
+    border: 1px solid orangered;
 }
 
 /* Back & Logout Buttons (UPDATED) */
@@ -60,7 +61,7 @@ border: 1px solid orangered;
     max-width: 500px;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -144,4 +145,63 @@ textarea {
 
 .btn:active {
     transform: translateY(0);
+}
+
+/* Global Image Responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .booking-card {
+        padding: 1.5rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .booking-card img {
+        height: auto;
+        max-height: 200px;
+    }
+
+    .main-content {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .price-per-km {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .booking-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
 }

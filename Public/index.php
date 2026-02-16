@@ -43,6 +43,8 @@
 <!-- php code -->
 <?php
 include 'connect.php';
+session_start();
+
 if(isset($_POST['SignIn'])){
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -50,6 +52,7 @@ if(isset($_POST['SignIn'])){
     $selectquery="SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password'";
     $res=mysqli_query($conn,$selectquery);
     if(mysqli_num_rows($res) > 0){
+        $_SESSION['email'] = $email; // Store email in session
         header("Location: Homepage.php");
         exit();
     }else{

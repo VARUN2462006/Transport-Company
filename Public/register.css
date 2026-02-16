@@ -8,7 +8,7 @@
 /* Page center */
 body {
     min-height: 100vh;
-    background: linear-gradient(to right,grey);
+    background: linear-gradient(to right, grey);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,10 @@ body {
 /* Container */
 .container {
     background: #ffffff;
-    width: 450px;
+    width: 90%;
+    /* Responsive width */
+    max-width: 450px;
+    /* Max width for larger screens */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
@@ -74,8 +77,8 @@ body {
 }
 
 /* Floating label */
-.input-group input:focus + label,
-.input-group input:valid + label {
+.input-group input:focus+label,
+.input-group input:valid+label {
     top: -8px;
     font-size: 12px;
     color: #000;

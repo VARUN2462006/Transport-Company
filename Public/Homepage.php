@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,13 +31,15 @@
             <a href="#about" class="option">About</a>
             <a href="#contact " class="option">Contact</a>
             <a href="services.php" class="option">Services</a> 
+            <a href="show_booking.php" class="option">My Bookings</a> 
+            
         </div>
     </div>
 
     <h1 class="logo">MAHARAJA TRANSPORT COMPANY</h1>
 
     <div class="right">
-        <a href="index.php" class="logout-btn">Logout</a>
+        <a href="logout.php" class="logout-btn">Logout</a>
     </div>
 </div>
 <hr>
