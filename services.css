@@ -1,0 +1,469 @@
+/* ═══════════════════════════════════════════════════════════
+   MAHARAJA TRANSPORT — Ultra Modern Services Page v4.0
+   Dark Theme · Glassmorphism · Gradient Accents
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-deep: #0a0a1a;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(255, 115, 0, 0.3);
+    --orange: #ff7300;
+    --orange-light: #ff9a44;
+    --orange-glow: rgba(255, 115, 0, 0.25);
+    --gold: #ffb366;
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(255, 255, 255, 0.55);
+    --text-muted: rgba(255, 255, 255, 0.35);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --radius-pill: 50px;
+    --font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; font-size: 17px; }
+
+body {
+    font-family: var(--font);
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animated background gradient orbs */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+body::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--orange), transparent 70%);
+    top: -200px; right: -100px;
+    animation: orbFloat 15s ease-in-out infinite alternate;
+}
+body::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #4f46e5, transparent 70%);
+    bottom: -150px; left: -100px;
+    animation: orbFloat 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -30px) scale(1.1); }
+    100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ═══════════════ NAVBAR ═══════════════ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(10, 10, 26, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.logo {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 115, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 115, 0, 0.15);
+    transition: transform 0.4s var(--ease);
+}
+.logo:hover { transform: scale(1.08) rotate(3deg); }
+
+.brand-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-link,
+.nav-btn {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    background: transparent;
+}
+.nav-link:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px var(--orange-glow);
+}
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--orange-glow);
+}
+
+/* ═══════════════ PAGE HEADER ═══════════════ */
+.page-header {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.page-header .tag {
+    display: inline-block;
+    background: rgba(255, 115, 0, 0.12);
+    border: 1px solid rgba(255, 115, 0, 0.2);
+    color: var(--gold);
+    padding: 8px 22px;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 20px;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #fff, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ═══════════════ TRUCK GRID ═══════════════ */
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.truck-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+}
+
+/* ═══════════════ TRUCK CARD ═══════════════ */
+.truck-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.45s var(--ease);
+    position: relative;
+}
+
+.truck-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 40%, rgba(255, 115, 0, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
+    pointer-events: none;
+}
+
+.truck-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 115, 0, 0.08);
+}
+.truck-card:hover::before { opacity: 1; }
+
+/* Card Image */
+.truck-card .card-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.truck-card .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+}
+
+.truck-card:hover .card-img img {
+    transform: scale(1.08);
+}
+
+.truck-card .card-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(to top, var(--bg-deep), transparent);
+    pointer-events: none;
+}
+
+/* Card Body */
+.truck-card .card-body {
+    padding: 24px 28px 28px;
+}
+
+.truck-card .truck-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.truck-card .truck-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.truck-card .truck-specs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.truck-card .spec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 115, 0, 0.1);
+    border: 1px solid rgba(255, 115, 0, 0.15);
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--gold);
+}
+
+.truck-card .spec-badge i {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+/* Book Button */
+.book-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: #fff;
+    font-family: var(--font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: all 0.35s var(--ease);
+    box-shadow: 0 4px 20px rgba(255, 115, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.book-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(255, 115, 0, 0.35);
+}
+.book-btn:hover::before { opacity: 1; }
+
+.book-btn:active { transform: translateY(-1px); }
+
+/* ═══════════════ CTA SECTION ═══════════════ */
+.cta-section {
+    text-align: center;
+    padding: 60px 20px 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 48px 36px;
+    backdrop-filter: blur(12px);
+}
+
+.cta-card h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.cta-card p {
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.35s var(--ease);
+    box-shadow: 0 4px 20px var(--orange-glow);
+}
+.cta-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--orange-glow);
+}
+
+.cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.35s var(--ease);
+}
+.cta-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ═══════════════ ENTRANCE ANIMATION ═══════════════ */
+.truck-card {
+    animation: cardEntrance 0.6s var(--ease) both;
+}
+.truck-card:nth-child(1) { animation-delay: 0s; }
+.truck-card:nth-child(2) { animation-delay: 0.08s; }
+.truck-card:nth-child(3) { animation-delay: 0.16s; }
+.truck-card:nth-child(4) { animation-delay: 0.24s; }
+.truck-card:nth-child(5) { animation-delay: 0.32s; }
+
+@keyframes cardEntrance {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width: 1024px) {
+    .navbar { padding: 14px 24px; }
+    .page-header { padding: 50px 20px 40px; }
+    .page-header h1 { font-size: 2.2rem; }
+    .truck-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .services-container { padding: 0 20px 60px; }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 12px 16px; }
+    .brand-name { display: none; }
+    .logo { width: 44px; height: 44px; }
+    .nav-link, .nav-btn { padding: 8px 16px; font-size: 0.85rem; }
+    .page-header h1 { font-size: 1.8rem; }
+    .page-header p { font-size: 0.95rem; }
+    .truck-grid { grid-template-columns: 1fr; }
+    .truck-card .card-img { height: 200px; }
+}
+
+@media (max-width: 480px) {
+    .navbar { padding: 10px 12px; gap: 8px; }
+    .nav-actions { gap: 8px; }
+    .nav-link, .nav-btn { padding: 8px 14px; font-size: 0.82rem; }
+    .page-header { padding: 40px 16px 30px; }
+    .page-header h1 { font-size: 1.5rem; }
+    .services-container { padding: 0 14px 50px; }
+    .truck-card .card-body { padding: 20px 22px 24px; }
+    .cta-card { padding: 32px 24px; }
+}

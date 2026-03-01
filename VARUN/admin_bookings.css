@@ -1,0 +1,340 @@
+/* Bookings page – Admin (Maharaja Transport Theme) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    background: #f4f7f6;
+    color: #1a1a1a;
+}
+
+/* Admin Header – Orange Theme */
+.admin-header {
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-bottom: 3px solid #ff7300;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.admin-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.admin-nav a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.admin-nav a:hover {
+    color: #ff7300;
+    background: rgba(255, 115, 0, 0.06);
+}
+
+.admin-nav a.active {
+    color: #ff7300;
+    background: rgba(255, 115, 0, 0.08);
+    font-weight: 600;
+}
+
+.admin-nav .user {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    padding-right: 0.5rem;
+    border-right: 1px solid #e0e0e0;
+}
+
+.admin-nav .logout-btn {
+    background: #ff7300;
+    color: #fff !important;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+}
+
+.admin-nav .logout-btn:hover {
+    background: #e66800;
+    transform: translateY(-1px);
+}
+
+/* Flash Messages */
+.flash {
+    margin: 0;
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.flash-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.flash-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* Main Layout */
+.bookings-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.bookings-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+}
+
+.bookings-section h2 {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.35rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Notice */
+.notice {
+    background: #fffaf5;
+    color: #7d6a00;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    border-left: 4px solid #ff7300;
+}
+
+.notice code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Table */
+.table-wrap {
+    overflow-x: auto;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.bookings-table th,
+.bookings-table td {
+    padding: 0.75rem 0.85rem;
+    text-align: left;
+    border-bottom: 1px solid #eaecef;
+}
+
+.bookings-table th {
+    background: #ff7300;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bookings-table tbody tr:nth-child(even) {
+    background: #fef8f3;
+}
+
+.bookings-table tbody tr:hover {
+    background: #fff3e6;
+}
+
+/* Action Forms & Buttons */
+.action-form {
+    display: inline-flex;
+    margin-right: 0.4rem;
+}
+
+.btn {
+    padding: 0.4rem 0.85rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-accept {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-accept:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(40, 167, 69, 0.2);
+}
+
+.btn-reject {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-reject:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.2);
+}
+
+/* Status Badges */
+.status {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-accepted {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-on_the_way {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-delivered {
+    background: #4caf50;
+    color: #fff;
+}
+
+.status-rejected {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Empty State */
+.empty {
+    color: #64748b;
+    margin: 1rem 0 0 0;
+    font-size: 0.95rem;
+}
+
+/* Reject Reason Input & Display */
+.reason-input {
+    width: 140px;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 0.3rem;
+    transition: border-color 0.2s ease;
+}
+
+.reason-input:focus {
+    border-color: #ff7300;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 115, 0, 0.15);
+}
+
+.reject-reason-text {
+    color: #721c24;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .admin-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .admin-header h1 {
+        font-size: 1.1rem;
+    }
+
+    .admin-nav {
+        gap: 0.75rem;
+    }
+
+    .bookings-main {
+        padding: 1rem;
+    }
+
+    .bookings-section {
+        padding: 1rem;
+    }
+
+    .bookings-table {
+        font-size: 0.8rem;
+    }
+
+    .bookings-table th,
+    .bookings-table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .admin-nav {
+        justify-content: center;
+    }
+
+    .admin-nav .user {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .action-form {
+        margin-right: 0.2rem;
+    }
+}

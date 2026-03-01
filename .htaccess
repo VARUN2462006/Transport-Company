@@ -1,0 +1,112 @@
+# ─── Maharaja Transport Company — Root .htaccess ──────────────────────────────
+
+# ─── Disable Directory Listing ───────────────────────────────────────────────
+Options -Indexes
+
+# ─── Turn Off Server Signature ───────────────────────────────────────────────
+ServerSignature Off
+
+# ─── Block Access to Sensitive Files ─────────────────────────────────────────
+<FilesMatch "\.(sql|log|bak|env|ini|sh|git|md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Block direct access to connect.php (database credentials)
+<Files "connect.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Block direct access to db_config.php (live credentials)
+<Files "db_config.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Block access to fix/migration/setup scripts
+<FilesMatch "^(fix_|admin_.*_setup|hash_admin|setup_|add_driver).*\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ─── Block Access to Comman Point Directory (internal helpers) ───────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^Comman\ Point/ - [F,L]
+</IfModule>
+
+# ─── MIME Types ──────────────────────────────────────────────────────────────
+AddType image/webp .webp
+
+# ─── GZIP Compression ───────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/font-woff
+    AddOutputFilterByType DEFLATE application/font-woff2
+</IfModule>
+
+# ─── Browser Caching ────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png  "access plus 30 days"
+    ExpiresByType image/gif  "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType image/x-icon "access plus 30 days"
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType text/javascript "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType application/font-woff "access plus 30 days"
+    ExpiresByType application/font-woff2 "access plus 30 days"
+    ExpiresByType font/woff2 "access plus 30 days"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ─── Cache-Control Headers ──────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    <FilesMatch "\.(webp|jpg|jpeg|png|gif|ico|svg)$">
+        Header set Cache-Control "public, max-age=2592000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+    Header set Connection keep-alive
+</IfModule>
+
+# ─── ETag Optimization ──────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    FileETag MTime Size
+</IfModule>

@@ -1,0 +1,416 @@
+/* report.css – Maharaja Transport Branded Theme */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.report-header {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #ff7300;
+}
+
+.report-header h1 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.back-btn {
+    background-color: #ff7300;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #e66800;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 115, 0, 0.2);
+}
+
+/* Main Container */
+.report-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Action Cards (Report Dashboard) */
+.action-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 115, 0, 0.1);
+    border-color: rgba(255, 115, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 115, 0, 0.08);
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.card p {
+    color: #7f8c8d;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* =========================================================================
+   A4 Document Reporting Styles
+   ========================================================================= */
+
+/* The A4 Paper Container */
+.document-a4 {
+    background: #ffffff;
+    max-width: 210mm;      /* A4 Width */
+    min-height: 297mm;     /* A4 Height */
+    margin: 2rem auto;
+    padding: 20mm;         /* Standard print margins */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+    font-family: 'Poppins', "Times New Roman", Times, serif;
+    color: #000 !important;
+    border-radius: 4px;
+}
+
+/* Company Letterhead */
+.report-letterhead {
+    border-bottom: 3px solid #ff7300;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.report-letterhead .company-info h1 {
+    margin: 0;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #ff7300;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+.report-letterhead .company-info p {
+    margin: 4px 0 0 0;
+    font-size: 9pt;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+}
+
+.report-letterhead .report-meta {
+    text-align: right;
+}
+
+.report-letterhead .report-meta h2 {
+    margin: 0 0 5px 0;
+    font-size: 14pt;
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.report-letterhead .report-meta p {
+    margin: 0;
+    font-size: 9pt;
+    color: #555;
+}
+
+/* Print Button in Header */
+.print-btn {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.print-btn:hover {
+    background-color: #333;
+    transform: translateY(-1px);
+}
+
+/* Formal Report Tables */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 10pt;
+    font-family: 'Poppins', sans-serif;
+}
+
+.report-table th, .report-table td {
+    padding: 10px 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.report-table th {
+    background-color: #ff7300;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.report-table tbody tr:nth-child(even) {
+    background-color: #fef8f3;
+}
+
+.report-table tbody tr:hover {
+    background-color: #fff3e6;
+}
+
+/* Executive Summary Stats Block */
+.report-summary-stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.summary-box {
+    flex: 1;
+    border: 1px solid #e0e0e0;
+    padding: 18px;
+    background-color: #fffaf5;
+    text-align: center;
+    border-radius: 6px;
+    border-top: 3px solid #ff7300;
+}
+
+.summary-box .label {
+    text-transform: uppercase;
+    font-size: 8pt;
+    color: #7f8c8d;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.summary-box .value {
+    font-size: 18pt;
+    font-weight: 800;
+    color: #1a1a1a;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================================================
+   Print Media Query Optimizations
+   ========================================================================= */
+@media print {
+    /* Hide dashboard UI elements */
+    .report-header, .header-actions, .back-btn, .print-btn {
+        display: none !important;
+    }
+
+    /* Reset background and remove shadows */
+    body {
+        background: transparent;
+    }
+
+    .report-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+    }
+
+    .document-a4 {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        min-height: auto !important;
+        background: transparent !important;
+    }
+
+    /* Force tables to break nicely and show borders clearly */
+    .report-table {
+        page-break-inside: auto;
+    }
+    .report-table tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    .report-table th, .report-table td {
+        border: 1pt solid #000;
+        color: #000;
+    }
+    .report-table th {
+        background-color: #ff7300 !important;
+        color: #fff !important;
+    }
+
+    .summary-box {
+        border: 1pt solid #000;
+        background-color: transparent !important;
+    }
+    .summary-box .value {
+        color: #000;
+    }
+
+    .report-letterhead .company-info h1 {
+        color: #ff7300 !important;
+    }
+}
+
+/* ============ SCREEN RESPONSIVE ============ */
+@media screen and (max-width: 768px) {
+    .report-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .report-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .report-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .action-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1.25rem;
+    }
+
+    .document-a4 {
+        padding: 10mm;
+        min-height: auto;
+        margin: 1rem;
+    }
+
+    .report-letterhead {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .report-letterhead .report-meta {
+        text-align: left;
+    }
+
+    .report-letterhead .company-info h1 {
+        font-size: 16pt;
+    }
+
+    .report-summary-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .summary-box .value {
+        font-size: 14pt;
+    }
+
+    .report-table {
+        font-size: 9pt;
+    }
+
+    .report-table th, .report-table td {
+        padding: 6px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .report-header h1 {
+        font-size: 1rem;
+    }
+
+    .back-btn, .print-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .document-a4 {
+        padding: 5mm;
+    }
+
+    .report-letterhead .company-info h1 {
+        font-size: 13pt;
+    }
+
+    .report-table {
+        font-size: 8pt;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+}
